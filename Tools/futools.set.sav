@@ -1,0 +1,61 @@
+# futools.set file
+
+# format
+# "keywoed="value, "keyword" should be uppercase
+#
+# tools path
+# if you want to tern on logging, set both TOOLSLOGDIR and LOGON=True!
+#TOOLSLOGDIR=E://FUDATASET//Logs
+#TOOLSLOGDIR=H://ToolsLogs
+LOGON=True
+# alias not implemented yet 24Jun2015
+ALIAS 
+run=fut.Run
+args=fut.args
+setinp=futsetINP
+log=fut.log
+END ALIAS
+
+# format : tool name and ebable/disable (default: enable)
+# ex. add_h_to_chm disable # disable the tool
+# note: case sensitive
+TOOLS # tools scripts in tools dirctory
+# tools pdb. one tool definition in one line ('tool name', 'description')
+# pdb tools
+'label','PDB tools'
+'listRes','Res utilty'
+'splitPDB','split pdb data at TER, into resides, or chains'
+'merge-pdb','merge pdb file to make pdb file of complex'
+'extractRes','extract resdiues'
+'pick-up-obj','pick-up resdiues, non-aa residures or peptide chains'
+'pick-up-unique-res','pick up unique residues'
+'update-res-coord','update residue coordinates with those in gamess output'
+'replace-res','replace residue in target mol'
+'delete-wat','delete water molecules'],
+'report-missing-atoms','report missing atoms in non-aa residues'
+'report-unique-res','report unique residues'
+'check-geom','check bond length, angle, and short contact'
+
+# fmo tools
+#'label','FMO tools'
+#'fragment-use-bda','fragment using bda-baa data in bda file'
+#'set-res-frgdat','set fragment data (.frg) to residue'
+#'make-fmo-input','make input data for GAMESS-FMO calculations'
+#'fmoutil','fmoutil ver.2.4: a utility program for GAMESS-FMO calculations'
+
+#miscellaneous tools
+'label','MISC tools'
+'make-filelst-file','make file containing file names in directory'
+'convert-atmnam',' convert pdb atom name from old to new/new to old'
+'reorder-res','reorder residues using sequence data' 
+'set-chain-name','set chain name'
+'change-atom-order-in-wat','change atom order in waters from H-O-H to O-H-H'
+'easy-plot','read output file and plot items'
+'make-tinkerxyz','make tinker xyz file and key file'
+END TOOLS
+# batch files
+BATCH # fu batch file
+END BATCH
+# external programs
+PROGRAM # external programs
+END PROGRAM

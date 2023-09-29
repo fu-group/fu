@@ -1,0 +1,224 @@
+#
+# fu setting paramters
+# Default values are defined in the ctrl.TableOfParameters method
+#
+[general]
+# 'platform':[self.platform,'str','plattform'],
+[window]
+#'win-pos':[-1,-1], # window position
+'win-size':[[640,400],'size','main window (mdlwin) size'],
+'win-size-w':[640,'int','only for internal use'],
+'win-size-h':[400,'int','only for internal use'],
+'shell-win-pos':[[],'size','pyshell window position'],
+'shell-win-size':[[640,200],'size','pyshell window size'],
+'win-color':[[0.0,0.0,0.0,1.0],'color',
+             'background color of main window (mdlwin)'],
+'win-color-geom-mode':[[0.0,0.0,0.0,1.0],'color',
+                       'background color of mdlwin in change geometry mode'],
+'helpwin-bgcolor':[[253,255,206],'color',
+                   'background color of help window'],
+'helpwin-fgcolor':[[0.0,0.0,0.0],'color',
+                   'foreground color of help window'],
+'open-mouse-mode-win':[True,'bool',
+                       'open mouse mode window at starting'],
+'mousemode-win-shape':[0,'int',
+            'shape of mouse mode window. 0:horizontal, 1:vertical'],
+'molchoice-win-shape':[0,'int',
+             'shape of mol choice window. 0:horizontal, 1:vertical'],
+'open-mol-choice-win':[True,'bool',
+                       'open mol choice window at starting'],
+'pyshellwin-move-free':[False,'bool',
+                        'pyshell win move together with mdlwin'],
+'projects':[{},'dic','used to store project data. internal use only.'],
+#'initial-project':'',
+#'initial-curdir':'',
+#'initila-setfile':'',
+#'curdir':'',
+#'curprj':'',
+#'cursetfile':'', # current setting file
+[font]
+'font':[0,'font',
+        'use the "lib.GetFont(family,size)" to obtain font object'],
+'text-font-size':[8,'int','font size'],
+'text-font':[0,'font',
+        'use the "lib.GetFont(family,size)" to obtain font object'],
+'text-font-size':[8,'int','font size'],
+'text-font-color':[[0.0,0.0,0.0],'color','text color(black)'], #black
+'text-message-color':[[1.0,1.0,0.0,1.0],
+                      'color','text message color(yellow)'],
+'text-message-fontstyle':[5,'int','text message fontstyle,see fu_draw'],
+'image-format':['png','str','image data format to save canvas image'],
+'image-bgcolor':[[1.0,1.0,1.0,1.0],
+                 'color','background color in capture canvas image'],
+[message]
+'echo':[False,'bool','echo executed menu'],
+'messageboxok':[True,'bool','enable/disable MessageBoxOK'],
+'messageboxyesno':[True,'bool','enable/disable MessageBoxYesNo'],
+'messageboxokcancel':[True,'bool','enable/disable MessageBoxOKCancel'],
+'redirect':[True,'bool','redirect stdout and stderr to shell console'],
+'warning':[True,'bool','worrning message'],
+[undo]
+'dump-draw-items':[False,'bool',
+                   'dump draw items when closing molecule'], # dump draw items on close molecule
+'max-undo':[3,'int',
+            'max. number of undo in change geometry operations'],
+'max-undo-zmt':[3,'int','max. number of undo in Z-matrix editor'],
+'max-file-history':[10,'int','max. number of file history'],
+[delete files]
+'del-image-files':[True,'bool',
+                   'delete files in "Images" folder without asking'],
+'del-scratch-files':[True,'bool',
+        'delete scratch files in "Scratch" directory at starting'],
+'pycrust-shell':[False,
+                 'bool','shell choice. True: PyCrust, False: PyShell'],
+'fmo-menu':[True,'bool','activate "FMO" menu'],
+'add-on1-menu':[[],'menu',
+      'add-on menu item data given by "setting" script or "Customize"'],
+'add-on2-menu':[[],'menu',
+    'second add-on menu item data given by "setting" script"'],
+'control-win-menu':[self.DefaultControlWinMenu(),
+                    'method','menu items in "ControlWin"'],
+'tools':[False,'bool','Tools commands enable(True)/disabel(False)'],
+'hide-mdlwin':[False,'bool','Hide mdlwin(main) window'],
+# modeling
+[modeling]
+'auto-add-hydrogens':[False,'bool',
+    'enable add hydrogens to polypeptides at reading structure data'],
+'auto-del-ters':[False,'bool',
+                 'delete "TER"s in PDB data at reading file'],
+'use-fmoutil':[True,
+               'bool','use fmoutil to add hydrogens to polypeptide'],
+'tinker-atom-name':[False,'bool','change atom name for "TINKER"'],
+'tinker-atom-order':[False,'bool','change atom order for "TINKER"'],
+# atom params
+[atom params]
+'mol-model':[0,'model,0:line,1:stick,2:ball-and-stick,3:CPK',
+             'molecular model. 0:line,1:stcik,2:ball-and-stick, 3:CPK'],
+'element-color':[SettingCtrl.DefaultElementColor(),
+                 'dic-color','element color dictionary'],
+'atom-sphere-radius':[0.3,'float','shere radius of atom'],
+'vdw-radius':[SettingCtrl.DefaultVdwRadius(),
+              'dic-float','dictionary of van-der-waals radius'],
+'bond-thick':[1,'int',
+              'bond thickness in line, stick model'],
+'bond-thick-bs':[0.5,'float',
+              'bond thickness in ball-and-stic model'],
+# draw params
+[draw params]
+'fog':[False,'bool','apply "Fog" effect'], # fog
+'select-color':[[0.0,1.0,0.0,1.0],'color','color for selected atoms'],
+'env-atom-color':[[0.68,0.02,0.64,1.0],
+                  'color','color for environment atoms'],
+'sel-box-color':[[0.0,1.0,0.0,0.3],
+                 'color','color for box selected region'],
+'sel-sphere-color':[[0.0,1.0,0.0,0.3],
+                    'color','color for sphere selected region'],
+'draw-message-font':[0,'int',
+   'use the "GetBitmapFont(style)" staticmethod to obtain font object'],
+'draw-message-color':[[0.0,1.0,0.0,1.0],
+                      'color','color of messeges on glcanvas'],
+'mode-message-color':[[1.0,1.0,1.0,1.0],
+                      'color','text color for "mode message"'], # mode message color
+'aa-chain-color':[SettingCtrl.DefaultAAChainColor(),
+                  'dic-color','polypeptide chain color'],
+'aa-residue-color':[SettingCtrl.DefaultAAResidueColor(),
+                    'dic-color','amino-acid residue color'],
+
+'draw-distance-line-thick':[1.0,'float','line thickness of drawdistance'],
+'rot-axis-arrow-thick':[1,'int','thickness of rotation axis'],
+'rot-axis-arrow-head':[0.2,'float','ratio of arrow head'],
+'rot-axis-arrow-color':[[1.0,1.0,0.0,1.0],
+                        'color','color for rotation-axis'],
+'draw-torsion-angle':[False,'bool','draw torsion angle when axis rot'],
+'beep-short-contact':[0.8,'bool','beep when short contact occured'],
+'label-color':[[0.0,1.0,0.0],'color',
+               'label (elm,atmnam,resnam,..) color on glcanvas'],
+'extra-bond-thick':[1,'int','thickness for extra bond'],
+'hydrogen-bond-thick':[1,'int','thickness for hydrohgen-bond'],
+'hydrogen-bond-color':[[0.0,1.0,1.0,1.0],'color','hydrogen-bond color'], # cyan
+'vdw-bond-color':[[0.0,1.0,1.0,1.0],'color','color for vdw-contact'], #cyan
+'stick-radius':[0.2,'float',
+                'radius for stick in "stik" and "ball-and-stic model'],
+'ball-radius':[0.4,'float','ball radius for "ball-and-stick" model'],
+'cpk-radius-scale':[1.0,'float','scale for vdw radius'],
+
+'aa-tube-color':[[1.0,1.0,1.0,1.0],'color','color of polupeptide tube'],
+'aa-tube-radius':[0.2,'float','radius of polypeptide tube'],
+'calpha-line-thick':[1,'int','line thickness of CAlpha chain'],
+'calpha-line-color':[[1.0,0.0,0.0,1.0],'color','line color of CAlpha chain'],
+'vib-vec-arrow-thick':[1,'int','thickness of arrow'],
+'vib-vec-arrow-head':[0.25,'float','arrow head raitio'],
+'vib-vec-arrow-color':[[1.0,1.0,0.0,1.0],'color','arrow color'],
+
+'xyz-axis-thick':[1,'int','thickeness of xyz-axis line'],
+'x-axis-color':[[1.0,0.0,0.6],'color','color of x-axis line'],
+'y-axis-color':[[1.0,1.0,0.0],'color','color of y-axis line'],
+'z-axis-color':[[0.0,1.0,1.0],'color','color of z-axis line'],
+
+'cell-box-lines': [True,'bool','model of cell box, lines or solid'],
+'cell-box-thick':[1,'int','thickeness of cell edge lines'],
+'o-label-color':[[1.0,1.0,1.0],'color','color of origin label "o"'],
+'a-axis-color':[[1.0,0.0,0.6],'color','color of a-axis line'],
+'b-axis-color':[[1.0,1.0,0.0],'color','color of b-axis line'],
+'c-axis-color':[[0.0,1.0,1.0],'color','color of c-axis line'],
+'d-axis-color':[[0.8,0.8,0.8],'color','color of other box edges'],
+
+[cube draw params]
+'cube-line-thick':[0.5,'float',
+              'thickness of polygon lines, draw cube'],
+'cube-mo-grid-size':[0.2,'float','grid size in Angs for mo cube data'],
+'cube-mo-grid-margin':[2.0,'float','grid margin in Angs for mo cube data'],
+'cube-mo-range':[[10,10],'lst','mo range in occ and vac orb numbers'],
+
+'stereo-eye':[1,'int','stereo eye choice. 1:cross, 2:parallel'],
+# shortcut key definition
+[key bindings]
+'custom-shortcut-key':[SettingCtrl.CustomShortcutKey(),
+                    'method','dictionary data for shortcut key assign'],
+'reserved-shortcut-key':[SettingCtrl.ReservedShortcutKey(),
+                    'method','dictionary data for shortcut key assign'],
+'shortcut-key':[SettingCtrl.ShortcutKey(),
+                'dic-int','dictionary data for shortcut key assign'],
+'zoom-speed':[10,'int','spped for zoom by key'], # picxel
+'translate-speed':[2,'int','spped for translate by key'], # pixcel
+# pdb-ftp-server to get monomer (frame) data
+[web sites]
+'pdb-monomer-ftp-server':[['ftp.wwpdb.org','guest','',
+     'pub/pdb/data/monomers'],'lst','pdb-ftp server to get frame data'],
+'pdb-model-ftp-server':[['ftp.pdbj.org','anonymous','','model'],
+                        'lst','pdb-ftp server to get model data'],
+'pdb-site':['http://www.rcsb.org/pdb/home/home.do','str','URL of PDB'],
+'check-pdb-atmnam':[True,'bool','Check atmnam of PDB is new?'],
+# openbabel
+[openbabel]
+'ob-opt-method':['cg','str','minimization method in openbabel(OB)'],
+'ob-forcefield':['uff','str','forcefiled in openbabel'],
+'ob-opt-max-steps':[200,'int','max. steps in openbabel minimization'],
+'ob-opt-crit':[0.01,'float','energy conv. crit. in OBminimization'],
+# cheminfo tools
+'n-gen-confs':[10,'int','numnber of conformers to generate'],
+# misc
+[misc]
+'output-filter':['','str','default filter file for reading output'],
+'save-log':[False,'bool','save log file flag'],
+'logfile-dir':[None,'str','logfile directory'],
+'logging-method-file':[self.loggingmethodfile,'str',
+                       'logging method definition file'],
+'suppress-message':[False,'bool','suppress message'],
+'message-level':[1,'int','Message level, 0(minimum)-5(maximum)'],
+# fragmentation
+[fragmentation]
+'split-option':[[0,1],'lst',
+       'allow to split at option bonds in auto fragmentation'],
+# MolIconTable
+'mol-icontable-mode':[1,'int','datawin in MolIconTable'],
+'messbox_MMMinimizer':[True,'bool','enabel/disable "Update" messagebox'],
+# variables
+'defaultfilename':['','str','default file name in ;ib.GetFileNmae'],
+# constants
+#'radian2degree' : [57.29577951,'float','conversion factor for radian-to-degree'],
+#'degree2radian' : [0.017453292,'float','conversion factor for degree-to-radian'],
+#'bohr2angstrom' : [0.529917724,'float','conversion factor for bhor-to-angstrom'],
+#'angstrom2bohr' : [1.8870854,'float','conversion factor for angstrom-to-bhor'],
+# html viewer on Linix
+'linux-html-viewer':['/usr/bin/firefox-esr','str','default html viewer on Linux'],

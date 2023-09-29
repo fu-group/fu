@@ -1,0 +1,25 @@
+!    -*- f90 -*-
+! Note: the context of this file is case sensitive.
+
+python module fucubelib ! in 
+    interface  ! in :fucubelib
+        subroutine make_polygons(moval,ex,ey,ez,boxmin,thres,ndiv,maxpoly,nx,ny,nz,polygons,npoly) ! in :fucubelib:fucubelib.f90
+            real(kind=8) dimension(nx,ny,nz),intent(in) :: moval
+            real(kind=8) dimension(3),intent(in) :: ex
+            real(kind=8) dimension(3),intent(in) :: ey
+            real(kind=8) dimension(3),intent(in) :: ez
+            real(kind=8) dimension(3),intent(in) :: boxmin
+            real(kind=8) intent(in) :: thres
+            integer intent(in) :: ndiv
+            integer intent(in) :: maxpoly
+            integer, optional,intent(in),check(shape(moval,0)==nx),depend(moval) :: nx=shape(moval,0)
+            integer, optional,intent(in),check(shape(moval,1)==ny),depend(moval) :: ny=shape(moval,1)
+            integer, optional,intent(in),check(shape(moval,2)==nz),depend(moval) :: nz=shape(moval,2)
+            real(kind=8) dimension(maxpoly,4,3),intent(out),depend(maxpoly) :: polygons
+            integer intent(out) :: npoly
+        end subroutine make_polygons
+    end interface 
+end python module fucubelib
+
+! This file was auto-generated with f2py (version:2).
+! See http://cens.ioc.ee/projects/f2py2e/

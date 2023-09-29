@@ -1,0 +1,39 @@
+!    -*- f90 -*-
+! Note: the context of this file is case sensitive.
+
+python module comp_mo ! in 
+    interface  ! in :comp_mo
+        function mo_value_at(x,y,z,mo,shltyp,shlxyz,shlgau,ex,cs,cp,cd,cf,nshl,ngau,nbas) ! in :comp_mo:comp_mo.f
+            real(kind=8) intent(in) :: x
+            real(kind=8) intent(in) :: y
+            real(kind=8) intent(in) :: z
+            real(kind=8) intent(in), dimension(nbas) :: mo
+            integer intent(in), dimension(nshl) :: shltyp
+            real(kind=8) intent(in), dimension(nshl,3),depend(nshl) :: shlxyz
+            integer intent(in), dimension(nshl,2),depend(nshl) :: shlgau
+            real(kind=8) intent(in), dimension(ngau) :: ex
+            real(kind=8) intent(in), dimension(ngau),depend(ngau) :: cs
+            real(kind=8) intent(in), dimension(ngau),depend(ngau) :: cp
+            real(kind=8) intent(in), dimension(ngau),depend(ngau) :: cd
+            real(kind=8) intent(in), dimension(ngau),depend(ngau) :: cf
+            integer, optional,check(len(shltyp)>=nshl),depend(shltyp) :: nshl=len(shltyp)
+            integer, optional,check(len(ex)>=ngau),depend(ex) :: ngau=len(ex)
+            integer, optional,check(len(mo)>=nbas),depend(mo) :: nbas=len(mo)
+            double precision :: mo_value_at
+        end function mo_value_at
+        function factri(n) ! in :comp_mo:comp_mo.f
+            integer intent(in) :: n
+            integer :: factri
+        end function factri
+        function gnormconst(a,l,m,n) ! in :comp_mo:comp_mo.f
+            real(kind=8) intent(in) :: a
+            integer intent(in) :: l
+            integer intent(in) :: m
+            integer intent(in) :: n
+            double precision :: gnormconst
+        end function gnormconst
+    end interface 
+end python module comp_mo
+
+! This file was auto-generated with f2py (version:2).
+! See http://cens.ioc.ee/projects/f2py2e/

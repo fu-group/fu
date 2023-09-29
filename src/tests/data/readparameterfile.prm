@@ -1,0 +1,23 @@
+# the test file of the 'lib.ReadParamterFile' method. 2020/12/08
+#
+model [
+   aa-residue-color (
+      ILE =[ 0.0, 0.0, 1.0, 1.0]
+      GLN =[1.0, 0.658823529412, 1.0, 1.0]
+      GLY =[1.0, 0.0, 0.0, 1.0]
+   )
+      hydrogen-bond-color = [0.0, 1.0, 1.0, 1.0]
+      aa-tube-radius = 0.2
+      mol-model=0
+   element-color (
+      C = [0.498039215686, 0.498039215686, 0.498039215686, 1.0]
+      CL = [0.0, 1.0, 1.0, 1.0]
+   )
+]
+
+# the retruned paramter dictionary(group=False,subgroup=True)
+# {'mol-model': 0, 'element-color': {'C': [0.498039215686, 0.498039215686,
+# 0.498039215686, 1.0], 'CL': [0.0, 1.0, 1.0, 1.0]}, 
+# 'aa-residue-color': {'GLY': [1.0, 0.0, 0.0, 1.0], 
+# 'ILE': [0.0, 0.0, 1.0, 1.0], 'GLN': [1.0, 0.658823529412, 1.0, 1.0]}, 
+# 'aa-tube-radius': 0.2, 'hydrogen-bond-color': [0.0, 1.0, 1.0, 1.0]}
